@@ -7,6 +7,14 @@ let width = 16
 
 function generateGrid(height = 16, width = 16)
 {
+    if (height < 1 || height >= 50)
+    {
+        height = 16
+    }
+    if (width < 1 || width >= 50)
+    {
+        width = 16
+    }
     for (let i = 0; i < width; i++)
     {
         const column = document.createElement("div")
@@ -42,6 +50,8 @@ submit.addEventListener("click", ()=>{
     console.log(inputlist[0].value)
     height = inputlist[0].value
     width = inputlist[1].value
+    inputlist[0].value = ""
+    inputlist[1].value = ""
     generateGrid(height,width)
 
     return // should take the input of x and y and generate a new grid with those values
